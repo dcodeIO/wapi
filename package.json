@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "asbuild": "asc assembly/index.ts --exportRuntime -b build/untouched.wasm -t build/untouched.wat --explicitStart",
+    "test": "node tests"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.18"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.18"
+  }
+}
