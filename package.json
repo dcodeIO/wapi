@@ -3,7 +3,8 @@
   "main": "index.js",
   "scripts": {
     "asbuild": "asc assembly/index.ts --exportRuntime -b build/untouched.wasm -t build/untouched.wat --explicitStart",
-    "test": "node tests"
+    "test": "node tests",
+    "bench": "node tests/bench"
   },
   "dependencies": {
     "@assemblyscript/loader": "^0.18"

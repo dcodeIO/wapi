@@ -58,3 +58,27 @@ console.log(Date.now().toString());
 console.log(Date.getTimezoneOffset().toString());
 state.set("hello world");
 console.log(state.get());
+
+// Don't mind the micro-benchmark
+
+declare function Date_now(): i32;
+
+export function bench1(count: i32): i32 {
+  const start = Date_now();
+  let n = 0;
+  for (let i = 0; i < count; ++i) {
+    n += Date_now(); // direct
+  }
+  if (n == 42) return 0;
+  return Date_now() - start;
+}
+
+export function bench2(count: i32): i32 {
+  const start = Date_now();
+  let n = 0;
+  for (let i = 0; i < count; ++i) {
+    n += Date.now(); // via wapi
+  }
+  if (n == 42) return 0;
+  return Date_now() - start;
+}
