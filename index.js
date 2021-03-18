@@ -1,8 +1,1 @@
-export default function wapi(env) {
-  const fns = {};
-  return (codePtr, ...args) => {
-    let fn = fns[codePtr];
-    if (!fn) fns[codePtr] = fn = Function.apply(null, Object.keys(env).concat(`return ${env.getString(codePtr)}`)).apply(env, Object.values(env));
-    return fn(...args);
-  };
-}
+export default function wapi(e){const f={};return{env:e,call:(c,...a)=>(f[c]||(f[c]=Function(...Object.keys(e).concat(`return ${e.getString(c)}`)).apply(e,Object.values(e))))(...a)}}

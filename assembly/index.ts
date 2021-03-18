@@ -1,11 +1,11 @@
 // TODO: Compiler integration to generate these automatically,
 // like a `@wapi` decorator or a `wapi` template tag function.
 
-@external("wapi", "wapi")
+@external("wapi", "call")
 declare function wapi_vs(code: string, arg1: string): void;
-@external("wapi", "wapi")
+@external("wapi", "call")
 declare function wapi_i(code: string): i32;
-@external("wapi", "wapi")
+@external("wapi", "call")
 declare function wapi_s(code: string): string;
 
 // Example implementations

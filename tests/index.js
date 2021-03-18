@@ -4,12 +4,8 @@ import fs from "fs";
 
 const wapiEnv = {};
 export const myModule = await loader.instantiate(fs.promises.readFile("build/untouched.wasm"), {
-  wapi: {
-    wapi: wapi(wapiEnv)
-  },
-  index: {
-    "Date_now": Date.now
-  }
+  wapi: wapi(wapiEnv),
+  index: { "Date_now": Date.now } // for bench
 });
 wapiEnv.getString = myModule.exports.__getString;
 wapiEnv.newString = myModule.exports.__newString;
